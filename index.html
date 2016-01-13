@@ -12,6 +12,10 @@
 		<script src="node_modules/systemjs/dist/system.src.js"></script>
 		<script src="node_modules/rxjs/bundles/Rx.js"></script>
 		<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+		<!-- Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="resources/vendor/semantic.min.css" >
+		<link rel="stylesheet" type="text/css" href="styles.css" >
 	</head>
 	<body>
 	<script>
@@ -26,7 +30,24 @@
 		System.import('app.js')
 			.then(null, console.error.bind(console));
 	</script>
+
+    <!-- Menu Bar -->
+    <div class="ui menu">
+      <div class="ui container">
+        <a href="#" class="header item">
+          <img class="logo" src="resources/images/ng-book-2-minibook.png">
+          ng-book 2
+        </a>
+        <div class="header item borderless">
+          <h1 class="ui header">
+            Angular 2 Simple Reddit
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="ui main text container">
 		<reddit></reddit>
+	</div>
 
 	</body>
 </html>
