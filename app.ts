@@ -37,6 +37,8 @@ class Article {
 	}
 
 
+
+
 }
 
 @Component({
@@ -80,12 +82,12 @@ class ArticleComponent {
 		this.article = new Article('Angular 2', 'http://angular.io');
 	}
 
-	VoteUp(): boolean {
+	voteUp(): boolean {
 		this.article.voteUp();
 		return false;
 	}
 
-	VoteDown(): boolean {
+	voteDown(): boolean {
 		this.article.voteDown();
 		return false;
 	}
@@ -110,7 +112,7 @@ class ArticleComponent {
 		 	</button>
 	 	</form>
 	 	<div class="ui grid posts">
-			<reddit-article *ngFor="#article of articles" [article]="article" >
+			<reddit-article *ngFor="#article of sortedArticles()" [article]="article" >
 			</reddit-article>
 		</div>
 	`,
@@ -123,8 +125,8 @@ class RedditApp {
 	constructor() {
 		this.articles = [
 			new Article('angular 1', 'http://angular.io', 2),
-			new Article('angular 2', 'http://angular.io', 23),
-			new Article('angular 3', 'http://angular.io', 5),
+			new Article('angular 2', 'http://angular2.io', 23),
+			new Article('angular 3', 'http://angular3.io', 5),
 		];
 
 	}
@@ -134,14 +136,12 @@ class RedditApp {
 		title.value = '';
 		link.value = '';
 		let str = `Adding article title: ${title.value} and <br> link: ${link.value}`;
-		console.log(str);
-		
+		console.log(str);	
 	}
 
-	checkevent(){
-		alert('asasd');
+	sortedArticles(): Article[] {
+		return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
 	}
-
 	
 }
 
