@@ -1,0 +1,12 @@
+ul.list li.item:before {
+	content: '';
+}
+.ui.form {
+	overflow: hidden;
+}
+
+.votes  {
+	background: #cfcfcf;
+	border-radius: 5px;
+	padding-top:10px;
+}
